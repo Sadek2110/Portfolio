@@ -1,0 +1,62 @@
+---
+import { ArrowRight, Terminal as TerminalIcon } from 'lucide-react';
+---
+<section id="hero" class="w-full max-w-6xl mx-auto px-4 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  {/* Text Info */}
+  <div class="lg:col-span-7 flex flex-col items-start gap-6">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 border-2 border-zinc-950 dark:border-zinc-50 bg-amber-400 text-zinc-950 font-heading font-black text-xs uppercase tracking-wider shadow-[2px_2px_0px_0px_#18181b] dark:shadow-[2px_2px_0px_0px_#fafafa]">
+      <span>🟢 DISPONIBLE PARA TRABAJAR / DAW</span>
+    </div>
+    
+    <h1 class="text-4xl sm:text-6xl md:text-7xl font-black font-heading tracking-tighter leading-[0.9] text-zinc-950 dark:text-white uppercase">
+      Sadek <br> <span class="text-blue-600 block sm:inline"> Ben Jouda</span>
+    </h1>
+    
+    <p class="text-lg md:text-xl font-medium leading-relaxed max-w-xl text-zinc-700 dark:text-zinc-300">
+      Estudiante de <strong class="text-zinc-950 dark:text-white">Desarrollo de Aplicaciones Web (DAW)</strong> en España. 
+      Especializándome en <strong class="text-zinc-950 dark:text-white">automatización de flujos reales con n8n</strong>, 
+      desarrollo de <strong class="text-zinc-950 dark:text-white">agentes de IA avanzados</strong> e integraciones con APIs.
+    </p>
+
+    <p class="text-sm text-zinc-500 dark:text-zinc-400 max-w-md">
+      Conector de mundos: desarrollo frontend/backend, flujos serverless y sistemas multiagente de inteligencia artificial.
+    </p>
+    
+    <div class="flex flex-wrap gap-4 mt-2">
+      <a href="#terminal" class="neo-btn bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 flex items-center gap-2">
+        <TerminalIcon className="w-4 h-4" /> Probar Terminal
+      </a>
+      <a href="#projects" class="neo-btn bg-blue-600 text-white hover:bg-blue-700 flex items-center gap-2">
+        Ver proyectos <ArrowRight className="w-4 h-4" />
+      </a>
+    </div>
+  </div>
+  
+  {/* Avatar / Photo Container */}
+  <div class="lg:col-span-5 flex justify-center items-center relative">
+    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+      {/* Background Shadow Offset */}
+      <div class="absolute inset-0 bg-blue-600 border-4 border-zinc-950 dark:border-zinc-50 translate-x-4 translate-y-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.05)]"></div>
+      
+      {/* Profile Image */}
+      <img
+        src="/img/foto-personal.png"
+        alt="Sadek Ben Jouda"
+        class="relative z-10 w-full h-full object-cover border-4 border-zinc-950 dark:border-zinc-50 bg-zinc-100 dark:bg-zinc-800 transition-all duration-300 hover:-translate-x-1.5 hover:-translate-y-1.5"
+      />
+      
+      {/* Floating Badges */}
+      <div class="absolute z-20 -top-4 -left-6 px-3 py-1 bg-amber-400 border-2 border-zinc-950 dark:border-zinc-50 font-mono font-bold text-xs text-zinc-950 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rotate-[-6deg]">
+        n8n & APIs ⚡
+      </div>
+      
+      <div class="absolute z-20 bottom-12 -right-8 px-3 py-1 bg-emerald-400 border-2 border-zinc-950 dark:border-zinc-50 font-mono font-bold text-xs text-zinc-950 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rotate-[4deg]">
+        AI Agents 🤖
+      </div>
+
+      <div class="absolute z-20 bottom-[-10px] left-8 px-3 py-1 bg-indigo-400 border-2 border-zinc-950 dark:border-zinc-50 font-mono font-bold text-xs text-zinc-950 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] rotate-[-3deg]">
+        Astro / PHP 💻
+      </div>
+    </div>
+  </div>
+</section>

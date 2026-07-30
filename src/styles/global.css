@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #18181B;
+  --color-secondary: #3F3F46;
+  --color-cta: #2563EB;
+  --color-accent-blue: #2563EB;
+  --color-accent-green: #10B981;
+  --color-accent-orange: #F59E0B;
+  
+  --font-heading: 'Archivo', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+}
+
+@layer utilities {
+  .neo-border {
+    @apply border-2 border-zinc-950 dark:border-zinc-50;
+  }
+  
+  .neo-border-thick {
+    @apply border-4 border-zinc-950 dark:border-zinc-50;
+  }
+
+  .neo-shadow {
+    @apply shadow-[4px_4px_0px_0px_#18181b] dark:shadow-[4px_4px_0px_0px_#fafafa];
+  }
+  
+  .neo-shadow-blue {
+    @apply shadow-[6px_6px_0px_0px_#2563eb];
+  }
+
+  .neo-shadow-lg {
+    @apply shadow-[8px_8px_0px_0px_#18181b] dark:shadow-[8px_8px_0px_0px_#fafafa];
+  }
+
+  .neo-card {
+    @apply bg-white dark:bg-zinc-900 border-2 border-zinc-950 dark:border-zinc-50 shadow-[4px_4px_0px_0px_#18181b] dark:shadow-[4px_4px_0px_0px_#fafafa] transition-all duration-200;
+  }
+
+  .neo-card-hover {
+    @apply hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_#18181b] dark:hover:shadow-[8px_8px_0px_0px_#fafafa] active:translate-x-0 active:translate-y-0 active:shadow-[2px_2px_0px_0px_#18181b] dark:active:shadow-[2px_2px_0px_0px_#fafafa];
+  }
+
+  .neo-btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-heading font-bold text-zinc-950 dark:text-zinc-50 bg-white dark:bg-zinc-900 border-2 border-zinc-950 dark:border-zinc-50 shadow-[4px_4px_0px_0px_#18181b] dark:shadow-[4px_4px_0px_0px_#fafafa] transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_0px_#18181b] dark:hover:shadow-[6px_6px_0px_0px_#fafafa] active:translate-x-0 active:translate-y-0 active:shadow-[2px_2px_0px_0px_#18181b] dark:active:shadow-[2px_2px_0px_0px_#fafafa] cursor-pointer;
+  }
+
+  .neo-btn-primary {
+    @apply bg-blue-600 text-white dark:bg-blue-600 dark:text-white hover:bg-blue-700 dark:hover:bg-blue-500;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-zinc-100 dark:bg-zinc-950;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 dark:bg-zinc-800 border-2 border-zinc-100 dark:border-zinc-950 rounded-none;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-400 dark:bg-zinc-700;
+}
+
+body {
+  @apply bg-zinc-50 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-50 font-body transition-colors duration-300;
+}

@@ -1,0 +1,164 @@
+---
+---
+<section id="skills" class="w-full max-w-6xl mx-auto px-4 py-16">
+  <div class="mb-12">
+    <div class="inline-block px-3 py-1 border-2 border-zinc-950 dark:border-zinc-50 bg-blue-600 text-white font-heading font-black text-xs uppercase tracking-wider mb-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+      CONOCIMIENTOS
+    </div>
+    <h2 class="text-3xl sm:text-5xl font-black font-heading tracking-tight uppercase text-zinc-950 dark:text-white">
+      Mi Stack Técnico
+    </h2>
+    <p class="text-zinc-600 dark:text-zinc-400 mt-2 text-sm md:text-base max-w-xl">
+      Organizado en áreas clave para unir el desarrollo web moderno, los flujos automatizados de datos y la inteligencia artificial.
+    </p>
+  </div>
+
+  {/* Bento Grid */}
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+    
+    {/* Card 1: Automatización */}
+    <div class="md:col-span-7 neo-card p-6 flex flex-col justify-between bg-blue-50 dark:bg-zinc-900 border-2 border-zinc-950 dark:border-zinc-50 rounded-none shadow-[4px_4px_0px_0px_#18181b] dark:shadow-[4px_4px_0px_0px_#fafafa]">
+      <div>
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <div class="p-2.5 border-2 border-zinc-950 dark:border-zinc-50 bg-amber-400 rounded-none">
+            {/* SVG Automation / Nodes Icon */}
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-zinc-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/>
+              <path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5.5Z"/>
+              <path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1Z"/>
+            </svg>
+          </div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider px-2 py-0.5 border border-zinc-950 dark:border-zinc-50 bg-amber-200 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+            Nivel: Básico en Progreso
+          </span>
+        </div>
+        
+        <h3 class="text-xl sm:text-2xl font-black font-heading mb-3 text-zinc-950 dark:text-white uppercase">
+          Automatizaciones & APIs
+        </h3>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
+          Especial interés en conectar diferentes servicios web sin escribir código repetitivo. Diseñando flujos de datos automatizados que conectan bots, webhooks y bases de datos.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-xs uppercase font-bold text-zinc-950 dark:text-zinc-50 mb-2">Herramientas clave:</h4>
+        <div class="flex flex-wrap gap-2">
+          {["n8n", "Webhooks", "APIs REST", "Llamadas HTTP", "Telegram Bots", "Flujo de Datos"].map(tech => (
+            <span class="text-xs font-mono font-bold px-2 py-1 border border-zinc-950 dark:border-zinc-50 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-200 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] dark:shadow-[1px_1px_0px_0px_rgba(255,255,255,1)]">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Card 2: IA Aplicada */}
+    <div class="md:col-span-5 neo-card p-6 flex flex-col justify-between bg-amber-50 dark:bg-zinc-900 border-2 border-zinc-950 dark:border-zinc-50 rounded-none shadow-[4px_4px_0px_0px_#18181b] dark:shadow-[4px_4px_0px_0px_#fafafa]">
+      <div>
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <div class="p-2.5 border-2 border-zinc-950 dark:border-zinc-50 bg-emerald-400 rounded-none">
+            {/* SVG AI Icon */}
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-zinc-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              <circle cx="12" cy="12" r="4"/>
+            </svg>
+          </div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider px-2 py-0.5 border border-zinc-950 dark:border-zinc-50 bg-emerald-200 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+            Nivel: Intermedio
+          </span>
+        </div>
+        
+        <h3 class="text-xl sm:text-2xl font-black font-heading mb-3 text-zinc-950 dark:text-white uppercase">
+          IA Aplicada & Agentes
+        </h3>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
+          Diseño e integración de agentes de inteligencia artificial y su arquitectura. Interés en sistemas multiagente y en extender sus capacidades mediante Model Context Protocol (MCP).
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-xs uppercase font-bold text-zinc-950 dark:text-zinc-50 mb-2">Conceptos clave:</h4>
+        <div class="flex flex-wrap gap-2">
+          {["MCP", "AGENT.md", "Skills", "Ingeniería de Prompts", "Multi-agents", "Claude/Gemini/Codex"].map(tech => (
+            <span class="text-xs font-mono font-bold px-2 py-1 border border-zinc-950 dark:border-zinc-50 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-200 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] dark:shadow-[1px_1px_0px_0px_rgba(255,255,255,1)]">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Card 3: Desarrollo Web */}
+    <div class="md:col-span-5 neo-card p-6 flex flex-col justify-between bg-emerald-50 dark:bg-zinc-900 border-2 border-zinc-950 dark:border-zinc-50 rounded-none shadow-[4px_4px_0px_0px_#18181b] dark:shadow-[4px_4px_0px_0px_#fafafa]">
+      <div>
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <div class="p-2.5 border-2 border-zinc-950 dark:border-zinc-50 bg-blue-400 rounded-none">
+            {/* SVG Web Icon */}
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-zinc-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="12" x="2" y="6" rx="2"/>
+              <path d="M12 18v4M8 22h8"/>
+            </svg>
+          </div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider px-2 py-0.5 border border-zinc-950 dark:border-zinc-50 bg-blue-200 text-blue-800 dark:bg-blue-950 dark:text-blue-300">
+            Nivel: Dásico
+          </span>
+        </div>
+        
+        <h3 class="text-xl sm:text-2xl font-black font-heading mb-3 text-zinc-950 dark:text-white uppercase">
+          Desarrollo Web (DAW)
+        </h3>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
+          Estudiante del Grado Superior DAW. Desarrollo frontend y backend para la creación de sitios funcionales y listos para producción con arquitecturas modernas como Astro.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-xs uppercase font-bold text-zinc-950 dark:text-zinc-50 mb-2">Tecnologías:</h4>
+        <div class="flex flex-wrap gap-2">
+          {["Astro", "PHP", "JavaScript", "HTML", "CSS", "MySQL", "PostgreSQL", "GitHub"].map(tech => (
+            <span class="text-xs font-mono font-bold px-2 py-1 border border-zinc-950 dark:border-zinc-50 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-200 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] dark:shadow-[1px_1px_0px_0px_rgba(255,255,255,1)]">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Card 4: Sistemas y DevOps */}
+    <div class="md:col-span-7 neo-card p-6 flex flex-col justify-between bg-indigo-50 dark:bg-zinc-900 border-2 border-zinc-950 dark:border-zinc-50 rounded-none shadow-[4px_4px_0px_0px_#18181b] dark:shadow-[4px_4px_0px_0px_#fafafa]">
+      <div>
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <div class="p-2.5 border-2 border-zinc-950 dark:border-zinc-50 bg-indigo-400 rounded-none">
+            {/* SVG Terminal/System Icon */}
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-zinc-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m5 17 5-5-5-5M12 19h7"/>
+            </svg>
+          </div>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider px-2 py-0.5 border border-zinc-950 dark:border-zinc-50 bg-indigo-200 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300">
+            Nivel: Básico
+          </span>
+        </div>
+        
+        <h3 class="text-xl sm:text-2xl font-black font-heading mb-3 text-zinc-950 dark:text-white uppercase">
+          Sistemas & Despliegue
+        </h3>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
+          Experiencia en el uso de Windows como sistema operativo principal, integrándolo con WSL (Ubuntu) para tareas de desarrollo. Interés en servidores VPS autoalojados y automatización.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-xs uppercase font-bold text-zinc-950 dark:text-zinc-50 mb-2">Herramientas:</h4>
+        <div class="flex flex-wrap gap-2">
+          {["Windows", "PowerShell", "WSL", "VPS Cloud", "EasyPanel", "Docker Compose", "Docker"].map(tech => (
+            <span class="text-xs font-mono font-bold px-2 py-1 border border-zinc-950 dark:border-zinc-50 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-200 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] dark:shadow-[1px_1px_0px_0px_rgba(255,255,255,1)]">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
