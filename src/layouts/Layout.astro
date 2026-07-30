@@ -8,8 +8,11 @@ interface Props {
 
 const { 
 	title = "Sadek Ben Jouda | DAW, Automatizaciones & Agentes IA", 
-	description = "Portafolio profesional de Sadek Ben Jouda, estudiante de Desarrollo de Aplicaciones Web en España. Especializado en automatizaciones con n8n, desarrollo web (PHP/JS/Astro), arquitecturas de agentes de IA y despliegue en VPS." 
+	description = "Portafolio profesional de Sadek Ben Jouda, estudiante de Desarrollo de Aplicaciones Web en Ceuta, España. Especializado en automatizaciones con n8n y Playwright, desarrollo web (Astro, React, Next.js, NestJS, PHP), arquitecturas de agentes de IA y despliegue en VPS con Docker."
 } = Astro.props;
+
+const siteUrl = "https://portfolio.dksaa.com";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
 
 <!doctype html>
@@ -23,18 +26,22 @@ const {
 		<meta name="description" content={description} />
 		<meta name="author" content="Sadek Ben Jouda" />
 		<meta name="robots" content="index, follow" />
-		
+		<link rel="canonical" href={canonicalUrl} />
+
 		<!-- Open Graph -->
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:url" content="https://sadek.dev" />
+		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:site_name" content="Portafolio Sadek Ben Jouda" />
-		
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:image" content={new URL('/img/foto-personal.png', siteUrl).href} />
+
 		<!-- Twitter Cards -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL('/img/foto-personal.png', siteUrl).href} />
 		
 		<!-- Icons & Fonts -->
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -42,6 +49,40 @@ const {
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Structured Data (Person) -->
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Person',
+				name: 'Sadek Ben Jouda',
+				url: siteUrl,
+				image: new URL('/img/foto-personal.png', siteUrl).href,
+				email: 'mailto:sadekjoud@gmail.com',
+				telephone: '+34616863398',
+				jobTitle: 'Estudiante de Desarrollo de Aplicaciones Web (DAW)',
+				address: {
+					'@type': 'PostalAddress',
+					addressLocality: 'Ceuta',
+					addressCountry: 'ES'
+				},
+				sameAs: ['https://github.com/Sadek2110', 'https://t.me/+34616863398'],
+				knowsAbout: [
+					'Astro',
+					'React',
+					'Next.js',
+					'NestJS',
+					'TypeScript',
+					'PHP',
+					'PostgreSQL',
+					'Docker',
+					'n8n',
+					'Playwright',
+					'Agentes de IA'
+				]
+			})}
+		/>
 
 		<!-- Inline Script to prevent Theme Flash -->
 		<script is:inline>

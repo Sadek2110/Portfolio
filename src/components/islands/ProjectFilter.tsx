@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
-import { Search, ExternalLink, Bot, Code, Globe, FileSpreadsheet, Trophy } from 'lucide-react';
+import { Search, ExternalLink, Bot, Globe, Dumbbell, CalendarCheck, GraduationCap, Building2, Trophy } from 'lucide-react';
+
+// lucide-react ya no incluye iconos de marca, así que el logo de GitHub va inline.
+function GithubIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.2 1.85v4" />
+      <path d="M9 18c-4.51 2-5-2-7-2" />
+    </svg>
+  );
+}
 
 interface Project {
   id: number;
@@ -12,6 +22,8 @@ interface Project {
   tech: string[];
   icon: React.ReactNode;
   features: string[];
+  repo?: string;
+  live?: string;
 }
 
 export default function ProjectFilter() {
@@ -21,67 +33,123 @@ export default function ProjectFilter() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Sistema de Scraping Automático",
-      description: "Un flujo inteligente que permite raspar cualquier sitio web enviando una URL a un Bot de Telegram y recibir un informe estructurado directo en Notion o Google Drive.",
-      category: "automation",
-      categoryLabel: "Automatización & IA",
-      status: "idea",
-      statusLabel: "Planificado (Idea)",
-      tech: ["n8n", "APIs HTTP", "Webhooks", "Telegram Bot", "Google Drive", "Notion"],
-      icon: <Bot className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
+      title: "GymFlow AI",
+      description: "Aplicación de gimnasio mobile-first en monorepo: registro de usuarios, perfil con historial de peso, catálogo de ejercicios, rutinas, entrenamientos y dashboard de progreso.",
+      category: "both",
+      categoryLabel: "Web & IA",
+      status: "en-progreso",
+      statusLabel: "En progreso (MVP 1)",
+      tech: ["Astro", "React (Islands)", "NestJS", "Prisma", "PostgreSQL 16", "Tailwind CSS", "Docker"],
+      icon: <Dumbbell className="w-8 h-8 text-blue-600 dark:text-blue-400" />,
       features: [
-        "Extracción de datos de contacto, logos e imágenes.",
-        "Generación automática de prompts de IA para rediseñar la web.",
-        "Guardado y organización automática en Google Drive o Notion."
-      ]
+        "Monorepo con npm workspaces: API NestJS + Prisma y web Astro/React.",
+        "Desarrollo dirigido por tests (TDD) con más de 160 tests en Jest y Vitest.",
+        "Stack completo levantable con Docker Compose para self-hosting."
+      ],
+      repo: "https://github.com/Sadek2110/GymFlow"
     },
     {
       id: 2,
-      title: "Bot Personal de Tareas",
-      description: "Un asistente en Telegram o WhatsApp diseñado para gestionar tus tareas y recordatorios diarios mediante lenguaje natural e integraciones directas.",
+      title: "Gym Reserver API",
+      description: "Automatización real que reserva cada mañana mi plaza en la sala Cardio-Fitness del C.D. Díaz Flor de Ceuta, controlando el navegador de forma headless sin intervención humana.",
       category: "automation",
       categoryLabel: "Automatización & IA",
-      status: "idea",
-      statusLabel: "Planificado (Idea)",
-      tech: ["n8n", "Telegram Bot", "Google Tasks", "Google Calendar", "VPS"],
-      icon: <FileSpreadsheet className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />,
+      status: "completado",
+      statusLabel: "En producción",
+      tech: ["Node.js 22", "Express", "Playwright", "n8n", "Docker", "EasyPanel"],
+      icon: <CalendarCheck className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />,
       features: [
-        "Añadir, ver y marcar tareas como completadas desde el chat.",
-        "Recordatorios proactivos y alertas de eventos diarios.",
-        "Sincronización en tiempo real con Google Tasks y Calendar."
-      ]
+        "API protegida con token Bearer y endpoint /health de monitorización.",
+        "Modo dryRun que recorre todo el flujo y se detiene antes de confirmar.",
+        "Desplegada 24/7 en VPS con Docker e invocada por un webhook programado en n8n."
+      ],
+      repo: "https://github.com/Sadek2110/ReservaGym"
     },
     {
       id: 3,
-      title: "Plataforma Web Deportiva Ceuta",
-      description: "Una aplicación web integral diseñada para gestionar de forma moderna y centralizada las competiciones locales y campos deportivos en la ciudad de Ceuta.",
-      category: "web",
-      categoryLabel: "Desarrollo Web",
-      status: "idea",
-      statusLabel: "Planificado (Idea)",
-      tech: ["PHP", "MySQL", "JavaScript", "HTML", "CSS", "GitHub", "VPS"],
-      icon: <Trophy className="w-8 h-8 text-amber-600 dark:text-amber-400" />,
+      title: "ScrapperAuto",
+      description: "API self-hosted de scraping que analiza cualquier web, extrae su contenido estructurado y genera automáticamente prompts de IA listos para rediseñarla.",
+      category: "automation",
+      categoryLabel: "Automatización & IA",
+      status: "completado",
+      statusLabel: "Completado",
+      tech: ["Fastify", "Playwright", "Cheerio", "Zod", "Docker"],
+      icon: <Bot className="w-8 h-8 text-violet-600 dark:text-violet-400" />,
       features: [
-        "Gestión de equipos, perfiles de jugadores y estadísticas de partidos.",
-        "Reserva en tiempo real y mapa de campos deportivos en Ceuta.",
-        "Sistema de solicitudes y notificaciones para jugadores."
-      ]
+        "Doble estrategia: scraper simple con Cheerio y avanzado con Playwright.",
+        "Extracción de datos de contacto, metadatos, logos e imágenes.",
+        "Detección del tipo de página y validación de entrada con Zod."
+      ],
+      repo: "https://github.com/Sadek2110/ScrapperAuto"
     },
     {
       id: 4,
+      title: "FastPlay — TFG de DAW",
+      description: "Plataforma web para organizar fútbol amateur: usuarios, equipos, partidos, campos y ligas con clasificación. Trabajo de fin de grado de 2.º de DAW, escrito sin frameworks.",
+      category: "web",
+      categoryLabel: "Desarrollo Web",
+      status: "completado",
+      statusLabel: "Completado (TFG)",
+      tech: ["PHP 8", "MVC propio", "SQLite", "PDO", "JavaScript vanilla", "Apache"],
+      icon: <Trophy className="w-8 h-8 text-amber-600 dark:text-amber-400" />,
+      features: [
+        "Framework MVC propio: enrutador, capa de datos, sesiones, CSRF y validador.",
+        "Dos niveles de competición (Liga Pro y Liga Amistosa) con clasificación.",
+        "Consultas preparadas con PDO, sesiones endurecidas y protección CSRF."
+      ],
+      repo: "https://github.com/Sadek2110/TFG"
+    },
+    {
+      id: 5,
+      title: "Plataforma de Cuestionarios",
+      description: "Aplicación docente para crear y corregir cuestionarios de jardinería, con roles diferenciados de profesor y alumno, notas, mensajería y estadísticas de rendimiento.",
+      category: "web",
+      categoryLabel: "Desarrollo Web",
+      status: "completado",
+      statusLabel: "Completado",
+      tech: ["Next.js 14", "TypeScript", "Prisma", "PostgreSQL", "Redis", "Tailwind CSS", "Docker"],
+      icon: <GraduationCap className="w-8 h-8 text-rose-600 dark:text-rose-400" />,
+      features: [
+        "Autenticación con JWT (jose) y contraseñas hasheadas con bcrypt.",
+        "Paneles separados: el profesor gestiona preguntas, notas y estadísticas.",
+        "API Routes de Next.js sobre Prisma con migraciones y datos de siembra."
+      ],
+      repo: "https://github.com/Sadek2110/QuizJardineria"
+    },
+    {
+      id: 6,
+      title: "ALSA — Gestión de Agencias",
+      description: "Panel de gestión para agencias de viajes y transporte marítimo, con área privada, alta de agencias y comunicación por correo con las navieras.",
+      category: "web",
+      categoryLabel: "Desarrollo Web",
+      status: "completado",
+      statusLabel: "Completado",
+      tech: ["Node.js", "Express", "PostgreSQL", "Helmet", "Nodemailer", "Jest", "Supertest"],
+      icon: <Building2 className="w-8 h-8 text-sky-600 dark:text-sky-400" />,
+      features: [
+        "Autenticación con bcrypt y validación de entrada con express-validator.",
+        "Endurecimiento HTTP con Helmet y CORS, más saneado de datos propio.",
+        "Suite de tests de integración con Jest y Supertest sobre la API."
+      ],
+      repo: "https://github.com/Sadek2110/ALSA"
+    },
+    {
+      id: 7,
       title: "Portafolio Web Profesional",
       description: "Este sitio web. Un portafolio optimizado para mostrar habilidades técnicas y personales con un enfoque claro en el rendimiento y una estética Neo-brutalista.",
       category: "both",
       categoryLabel: "Web & IA",
       status: "completado",
       statusLabel: "Completado",
-      tech: ["Astro", "Tailwind CSS", "React (Islands)", "Lucide Icons", "GitHub"],
+      tech: ["Astro", "React (Islands)", "Tailwind CSS", "Lucide Icons", "Docker", "Nginx"],
       icon: <Globe className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />,
       features: [
         "Arquitectura Astro Islands que reduce el Javascript en el cliente.",
         "Simulación interactiva de PowerShell para desplegar información.",
         "Optimización de SEO y rendimiento de carga ultra rápido."
-      ]
+      ],
+      repo: "https://github.com/Sadek2110/Portfolio",
+      live: "https://portfolio.dksaa.com"
     }
   ];
 
@@ -156,8 +224,10 @@ export default function ProjectFilter() {
                       {project.categoryLabel}
                     </span>
                     <span className={`text-xxs font-bold px-2 py-0.5 border border-zinc-950 dark:border-zinc-50 ${
-                      project.status === 'completado' 
-                        ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' 
+                      project.status === 'completado'
+                        ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+                        : project.status === 'en-progreso'
+                        ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
                         : 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300'
                     }`}>
                       {project.statusLabel}
@@ -175,7 +245,7 @@ export default function ProjectFilter() {
 
                 {/* Características destacadas */}
                 <div className="mb-4">
-                  <h4 className="text-xs uppercase font-bold text-zinc-950 dark:text-zinc-50 mb-1.5">Características planificadas:</h4>
+                  <h4 className="text-xs uppercase font-bold text-zinc-950 dark:text-zinc-50 mb-1.5">Características destacadas:</h4>
                   <ul className="list-disc pl-4 text-xs text-zinc-500 dark:text-zinc-400 space-y-1">
                     {project.features.map((feat, i) => (
                       <li key={i}>{feat}</li>
@@ -196,14 +266,28 @@ export default function ProjectFilter() {
                     </span>
                   ))}
                 </div>
-                {project.status === 'completado' && (
-                  <a
-                    href="#top"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold font-heading text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
-                  >
-                    Ver en vivo <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
+                <div className="flex flex-wrap items-center gap-4">
+                  {project.repo && (
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold font-heading text-zinc-950 dark:text-zinc-50 hover:underline cursor-pointer"
+                    >
+                      <GithubIcon className="w-3.5 h-3.5" /> Ver código
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold font-heading text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
+                    >
+                      Ver en vivo <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

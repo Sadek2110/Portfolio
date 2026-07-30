@@ -60,7 +60,8 @@ export default function InteractiveTerminal() {
           { type: 'output', text: '----------------------------------------' },
           { type: 'output', text: 'PERFIL PROFESIONAL: Sadek Ben Jouda' },
           { type: 'output', text: '----------------------------------------' },
-          { type: 'output', text: 'Estudios: Grado Superior de Desarrollo de Aplicaciones Web (DAW) en España.' },
+          { type: 'output', text: 'Estudios: Grado Superior de Desarrollo de Aplicaciones Web (DAW) en Ceuta, España.' },
+          { type: 'output', text: 'TFG: "FastPlay", plataforma de fútbol amateur en PHP 8 con framework MVC propio.' },
           { type: 'output', text: 'Enfoque: Diseñar, configurar, desplegar y mantener flujos de automatizaciones reales,' },
           { type: 'output', text: 'sistemas inteligentes de IA y desarrollo web premium.' },
           { type: 'output', text: 'Entorno favorito: Windows con WSL (Ubuntu) / PowerShell.' }
@@ -71,11 +72,13 @@ export default function InteractiveTerminal() {
           { type: 'output', text: '========================================' },
           { type: 'output', text: 'HABILIDADES TÉCNICAS (Stack Tecnológico)' },
           { type: 'output', text: '========================================' },
-          { type: 'output', text: '🤖 Automatizaciones: n8n, Webhooks, APIs HTTP, Bots de Telegram, Flujos de datos.' },
-          { type: 'output', text: '💻 Desarrollo Web: PHP, Astro, JavaScript, HTML, CSS, MySQL, PostgreSQL, Node.js.' },
-          { type: 'output', text: '🧠 IA Aplicada: MCP (Model Context Protocol), AGENT.md, Arquitectura de Agentes IA,' },
+          { type: 'output', text: '🤖 Automatizaciones: n8n, Webhooks, APIs HTTP, Playwright, Bots de Telegram, Scraping.' },
+          { type: 'output', text: '💻 Desarrollo Web: Astro, React, Next.js, TypeScript, Node.js, NestJS, Express, Fastify, PHP 8 (MVC).' },
+          { type: 'output', text: '🗄️ Bases de datos: PostgreSQL, MySQL, SQLite, Prisma ORM, PDO, Redis.' },
+          { type: 'output', text: '🧠 IA Aplicada: MCP (Model Context Protocol), AGENTS.md, Arquitectura de Agentes IA,' },
           { type: 'output', text: '                Ingeniería de Prompts, Sistemas Multiagente.' },
-          { type: 'output', text: '🔧 Sistemas y DevOps: Git/GitHub, Docker, Docker Compose, EasyPanel, VPS / Servidores Cloud.' }
+          { type: 'output', text: '🧪 Calidad: TDD, Jest, Vitest, Testing Library, Supertest.' },
+          { type: 'output', text: '🔧 Sistemas y DevOps: Git/GitHub, Docker, Docker Compose, Nginx, EasyPanel, VPS / Servidores Cloud.' }
         ];
         break;
       case 'sadek.projects':
@@ -83,14 +86,22 @@ export default function InteractiveTerminal() {
           { type: 'output', text: '========================================' },
           { type: 'output', text: 'PROYECTOS Y LÍNEAS DE DESARROLLO' },
           { type: 'output', text: '========================================' },
-          { type: 'output', text: '1. Sistema de Scraping Automático  [Estado: Planificado / Idea]' },
-          { type: 'output', text: '   - Enviar URL a bot de Telegram y recibir scraping estructurado en Drive/Notion.' },
-          { type: 'output', text: '2. Bot Personal de Tareas          [Estado: Planificado / Idea]' },
-          { type: 'output', text: '   - Integrado en Telegram para gestionar recordatorios y sincronizarse con Google Tasks.' },
-          { type: 'output', text: '3. Plataforma Deportiva Ceuta     [Estado: Planificado / Idea]' },
-          { type: 'output', text: '   - Portal web para gestionar reservas de campos deportivos, estadísticas, equipos y partidos.' },
-          { type: 'output', text: '4. Portafolio Web Premium          [Estado: ¡Completado!]' },
-          { type: 'output', text: '   - Diseñado con Astro + React (Islands) usando el Neo-brutalismo y optimización SEO.' }
+          { type: 'output', text: '1. GymFlow AI                 [Estado: En progreso]' },
+          { type: 'output', text: '   - Monorepo Astro + React (islas) / NestJS + Prisma / PostgreSQL 16, mobile-first y con TDD.' },
+          { type: 'output', text: '2. Gym Reserver API           [Estado: Completado]' },
+          { type: 'output', text: '   - Express + Playwright que reserva automáticamente el gimnasio cada mañana vía webhook de n8n.' },
+          { type: 'output', text: '3. ScrapperAuto               [Estado: Completado]' },
+          { type: 'output', text: '   - API self-hosted (Fastify + Playwright + Cheerio) de scraping y generación de prompts de IA.' },
+          { type: 'output', text: '4. FastPlay (TFG de DAW)      [Estado: Completado]' },
+          { type: 'output', text: '   - Plataforma de fútbol amateur en PHP 8 con MVC propio, SQLite/PDO, CSRF y sesiones endurecidas.' },
+          { type: 'output', text: '5. QuizJardinería             [Estado: Completado]' },
+          { type: 'output', text: '   - Plataforma de cuestionarios Next.js 14 + Prisma + Redis con roles de profesor y alumno.' },
+          { type: 'output', text: '6. ALSA - Gestión de Agencias [Estado: Completado]' },
+          { type: 'output', text: '   - Panel Node.js + Express + PostgreSQL para agencias de viajes, con Helmet y tests en Jest.' },
+          { type: 'output', text: '7. Portafolio Web             [Estado: Completado]' },
+          { type: 'output', text: '   - Este sitio: Astro + React (Islands), Neo-brutalismo, Docker/Nginx y optimización SEO.' },
+          { type: 'output', text: '' },
+          { type: 'output', text: 'Código fuente: https://github.com/Sadek2110' }
         ];
         break;
       case 'sadek.goals':
@@ -104,10 +115,11 @@ export default function InteractiveTerminal() {
       case 'sadek.contact':
         response = [
           { type: 'output', text: '>> CONTACTO DIRECTO:' },
-          { type: 'output', text: '  - GitHub: https://github.com/SadekBJ' },
-          { type: 'output', text: '  - Email: contacto@sadek.dev (Simulado)' },
-          { type: 'output', text: '  - Telegram: @sadek_dev (Simulado)' },
-          { type: 'output', text: '  - Ubicación: Ceuta / España' }
+          { type: 'output', text: '  - Email:     sadekjoud@gmail.com' },
+          { type: 'output', text: '  - Teléfono:  +34 616 863 398' },
+          { type: 'output', text: '  - Telegram:  +34 616 863 398 (https://t.me/+34616863398)' },
+          { type: 'output', text: '  - GitHub:    https://github.com/Sadek2110' },
+          { type: 'output', text: '  - Ubicación: Ceuta / España (UTC+2)' }
         ];
         break;
       default:
