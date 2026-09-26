@@ -5,21 +5,8 @@
 .story-bottom { position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; gap: 45px; padding-block: 22px; }
 .story-bottom::before { content: ''; position: absolute; z-index: -1; inset: -22px calc(50% - 50vw) 0; background: linear-gradient(transparent, #10110fec 60%); }
 .story-location { font-size: 8px; color: #bac5ad; }
-.story-timeline { display: flex; width: min(560px, 65%); gap: 20px; pointer-events: auto; }
-.story-timeline a { flex: 1; min-width: 0; padding-block: 12px 4px; }
-.timeline-track { display: block; height: 2px; background: #b5c2a53b; margin-bottom: 10px; transition: background .2s; }
-.timeline-track > span { display: block; height: 100%; background: var(--accent); transform: scaleX(var(--chapter-fill, 0)); transform-origin: left; }
-.timeline-label { display: flex; align-items: center; gap: 7px; color: #b6c0ab; font-size: 10px; transition: color .2s; }
-.timeline-label .mono { font-size: 8px; }
-.story-timeline [aria-current] .timeline-label { color: var(--accent); }
-.story-timeline a:hover .timeline-label { color: var(--accent); }
-.story-timeline a:hover .timeline-track { background: #b5c2a566; }
-.contact-active .story-timeline a:hover .timeline-label { color: #182510; }
-.contact-active .story-timeline a:hover .timeline-track { background: #263d1766; }
 .contact-active .story-bottom::before { opacity: 0; }
-.contact-active .story-location, .contact-active .timeline-label, .contact-active .story-timeline [aria-current] .timeline-label { color: #263d17; }
-.contact-active .timeline-track { background: #263d1735; }
-.contact-active .timeline-track > span { background: #263d17; }
+.contact-active .story-location { color: #263d17; }
 .story-chapters { position: relative; }
 .story-chapter { position: relative; min-height: 100svh; display: flex; align-items: center; padding: 150px 0 130px; scroll-margin-top: 0; scroll-snap-align: start; scroll-snap-stop: always; overflow: clip; }
 .chapter-shell { position: relative; z-index: 1; }
@@ -108,8 +95,6 @@
   .approach-visual { padding: 22px; }
   .approach-nodes li { padding: 20px 14px; gap: 15px; }
   .approach-note { font-size: 6px; }
-  .story-timeline { gap: 12px; }
-  .timeline-label { font-size: 9px; }
   .story-location { font-size: 7px; }
   .contact-symbol svg { width: 85px; }
 }
@@ -158,10 +143,6 @@
   .story-contact-links a, .story-contact-links button { font-size: 11px; }
   .story-bottom { flex-direction: column; align-items: stretch; gap: 6px; padding-block: 10px 15px; }
   .story-location { display: none; }
-  .story-timeline { width: 100%; gap: 12px; }
-  .timeline-label { font-size: 8px; gap: 5px; }
-  .timeline-label .mono { font-size: 7px; }
-  .timeline-track { margin-bottom: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .story-page { scroll-snap-type: none; }

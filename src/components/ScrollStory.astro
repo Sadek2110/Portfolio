@@ -2,19 +2,11 @@
 import { profile, projects, allProjects } from '../data/portfolio';
 import Icon from './Icon.astro';
 import '../styles/story.css';
-const chapters = [
-  { id: 'inicio', label: 'Inicio' }, { id: 'sobre-mi', label: 'Perfil' },
-  { id: 'proyectos', label: 'Proyectos' }, { id: 'infraestructura', label: 'Enfoque' },
-  { id: 'contacto', label: 'Hablemos' },
-];
 ---
 <div class="scroll-story" data-scroll-story>
   <div class="story-backdrop">
     <div class="story-bottom shell">
       <span class="story-location mono">CEUTA, ESPAÑA / DAW 2026</span>
-      <nav class="story-timeline" aria-label="Capítulos de la presentación">
-        {chapters.map((chapter, i) => <a href={'#' + chapter.id} data-chapter-link={i} aria-label={(i + 1) + '. ' + chapter.label}><span class="timeline-track"><span></span></span><span class="timeline-label"><span class="mono">0{i + 1}</span>{chapter.label}</span></a>)}
-      </nav>
     </div>
   </div>
   <div class="story-chapters">

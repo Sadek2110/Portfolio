@@ -2,7 +2,6 @@
 const story = document.querySelector<HTMLElement>('[data-scroll-story]');
 if (story) {
   const chapters = [...story.querySelectorAll<HTMLElement>('[data-chapter]')];
-  const links = [...story.querySelectorAll<HTMLAnchorElement>('[data-chapter-link]')];
   const reveals = chapters.map(chapter => [...chapter.querySelectorAll<HTMLElement>('[data-story-reveal]')]);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   let frame = 0;
@@ -26,11 +25,6 @@ if (story) {
         element.style.setProperty('--reveal-opacity', String(opacity));
         element.style.setProperty('--reveal-y', shift + 'px');
       });
-      links[index]?.style.setProperty('--chapter-fill', String(clamp((viewport - rect.top) / (rect.height + viewport))));
-    });
-    links.forEach((link, index) => {
-      if (current === index) link.setAttribute('aria-current', 'step');
-      else link.removeAttribute('aria-current');
     });
     story!.dataset.chapter = String(current);
     story!.classList.toggle('contact-active', current === chapters.length - 1);
