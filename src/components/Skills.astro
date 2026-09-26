@@ -1,0 +1,8 @@
+---
+import { skillGroups } from '../data/portfolio';
+---
+<section class="shell section" id="tecnologias" aria-labelledby="skills-title">
+  <div class="section-kicker mono"><span>03 / CAJA DE HERRAMIENTAS</span><span>EL STACK SIGUE A LA IDEA</span></div>
+  <div class="section-heading" data-reveal><h2 id="skills-title">Las piezas.<br /><span class="muted-heading">Las posibilidades.</span></h2><p>Herramientas que uso para construir,<br />conectar y poner las cosas en marcha.</p></div>
+  <div class="skills-grid">{skillGroups.map(group => <article class="skill-card" data-reveal><div class="skill-top mono"><span>/{group.number}</span><span aria-hidden="true">↗︎</span></div><h3>{group.title}</h3><p>{group.note}</p><div class="skill-tags">{group.skills.map(skill => <span>{skill}</span>)}</div><div class="skill-evidence mono">EN {group.project}</div></article>)}</div>
+</section>

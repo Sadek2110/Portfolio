@@ -1,0 +1,26 @@
+---
+import { allProjects as projects } from '../../data/portfolio';
+import type { Project } from '../../data/portfolio';
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Footer from '../../components/Footer.astro';
+import ProjectVisual from '../../components/ProjectVisual.astro';
+import Icon from '../../components/Icon.astro';
+export function getStaticPaths() { return projects.map((project, i) => ({ params: { slug: project.slug }, props: { project, next: projects[(i + 1) % projects.length] } })); }
+interface Props { project: Project; next: Project; }
+const { project, next } = Astro.props;
+---
+<Layout title={`${project.title} — Sadek Ben Jouda`} description={project.description}>
+  <Navigation />
+  <main id="contenido" class="case-page shell">
+    <a class="text-link case-back" href="/proyectos/"><span aria-hidden="true">←</span> Todos los proyectos</a>
+    <div class="section-kicker mono"><span>{project.type}</span><span>{project.status}</span></div>
+    <h1>{project.title}<span class="accent">.</span></h1>
+    <p class="case-lead">{project.description}</p>
+    <div class="case-top-meta"><div class="project-tags">{project.stack.map(tech => <span>{tech}</span>)}</div><a class="button button-primary" href={project.repo} target="_blank" rel="noopener noreferrer">Ver código <Icon name="github" size={18} /></a>{project.demo && <a class="button button-ghost" href={project.demo} target="_blank" rel="noopener noreferrer">Ver demo <Icon /></a>}</div>
+    <ProjectVisual project={project} />
+    <div class="case-content"><aside><span class="eyebrow">SOBRE EL PROYECTO</span><p>{project.category}</p><span class="mono">{project.status}</span></aside><div class="case-story"><section><h2>El contexto</h2><p>{project.context}</p></section><section><h2>El reto</h2><p>{project.challenge}</p></section><section><h2>El trabajo realizado</h2><ul>{project.work.map(item => <li>{item}</li>)}</ul></section><section><h2>Resultado y estado actual</h2><p>{project.result}</p></section><details class="source-note"><summary>Documentación y alcance verificado</summary><p>{project.source}</p><a class="text-link" href={project.repo} target="_blank" rel="noopener noreferrer">Consultar el repositorio <Icon size={16} /></a></details></div></div>
+    <a class="next-project" href={`/proyectos/${next.slug}/`}><span><span class="eyebrow">SIGUIENTE PROYECTO</span><strong>{next.title}</strong></span><Icon size={48} /></a>
+  </main>
+  <Footer />
+</Layout>

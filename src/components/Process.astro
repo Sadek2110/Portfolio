@@ -1,0 +1,8 @@
+---
+import { process } from '../data/portfolio';
+---
+<section class="shell process-section" aria-labelledby="process-title">
+  <div class="section-kicker mono"><span>04 / DE LA IDEA AL CÓDIGO</span></div>
+  <h2 class="process-title" id="process-title">Así lo hago<span class="accent">.</span></h2>
+  <div class="process-grid">{process.map((step, i) => <article data-reveal><div class="process-number mono"><span>0{i + 1}</span><span aria-hidden="true">{i < process.length - 1 ? '→' : '↗︎'}</span></div><h3>{step.title}</h3><p>{step.text}</p><a class="process-example" href={`/proyectos/${step.project}/`}><span class="mono">EN LA PRÁCTICA ↗︎</span>{step.example}</a></article>)}</div>
+</section>

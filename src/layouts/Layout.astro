@@ -1,121 +1,49 @@
 ---
+import '@fontsource-variable/manrope';
+import '@fontsource/ibm-plex-mono/400.css';
 import '../styles/global.css';
-
-interface Props {
-	title?: string;
-	description?: string;
-}
-
-const { 
-	title = "Sadek Ben Jouda | DAW, Automatizaciones & Agentes IA", 
-	description = "Portafolio profesional de Sadek Ben Jouda, estudiante de Desarrollo de Aplicaciones Web en Ceuta, España. Especializado en automatizaciones con n8n y Playwright, desarrollo web (Astro, React, Next.js, NestJS, PHP), arquitecturas de agentes de IA y despliegue en VPS con Docker."
-} = Astro.props;
-
-const siteUrl = "https://portfolio.dksaa.com";
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+import '../styles/enhancements.css';
+import { profile, skillGroups } from '../data/portfolio';
+import Terminal from '../components/Terminal.astro';
+interface Props { title?: string; description?: string; cinematic?: boolean; }
+const { title = `${profile.shortName} — Desarrollo web & automatización`, description = profile.headline, cinematic = false } = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
+const image = Astro.site ? new URL('/media/social.jpg', Astro.site).href : '/media/social.jpg';
+const person = {
+  '@context': 'https://schema.org', '@type': 'Person', name: profile.name,
+  jobTitle: profile.role, description: profile.headline,
+  ...(Astro.site ? { url: Astro.site.href } : {}),
+  sameAs: [profile.github, profile.linkedin].filter(Boolean),
+  homeLocation: { '@type': 'Place', name: profile.location },
+  knowsAbout: skillGroups.flatMap(group => group.skills),
+};
 ---
-
 <!doctype html>
-<html lang="es" class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		
-		<!-- SEO -->
-		<title>{title}</title>
-		<meta name="description" content={description} />
-		<meta name="author" content="Sadek Ben Jouda" />
-		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href={canonicalUrl} />
-
-		<!-- Open Graph -->
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:url" content={canonicalUrl} />
-		<meta property="og:site_name" content="Portafolio Sadek Ben Jouda" />
-		<meta property="og:locale" content="es_ES" />
-		<meta property="og:image" content={new URL('/img/foto-personal.png', siteUrl).href} />
-
-		<!-- Twitter Cards -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={new URL('/img/foto-personal.png', siteUrl).href} />
-		
-		<!-- Icons & Fonts -->
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-		<meta name="generator" content={Astro.generator} />
-
-		<!-- Structured Data (Person) -->
-		<script
-			type="application/ld+json"
-			set:html={JSON.stringify({
-				'@context': 'https://schema.org',
-				'@type': 'Person',
-				name: 'Sadek Ben Jouda',
-				url: siteUrl,
-				image: new URL('/img/foto-personal.png', siteUrl).href,
-				email: 'mailto:sadekjoud@gmail.com',
-				telephone: '+34616863398',
-				jobTitle: 'Estudiante de Desarrollo de Aplicaciones Web (DAW)',
-				address: {
-					'@type': 'PostalAddress',
-					addressLocality: 'Ceuta',
-					addressCountry: 'ES'
-				},
-				sameAs: ['https://github.com/Sadek2110', 'https://t.me/+34616863398'],
-				knowsAbout: [
-					'Astro',
-					'React',
-					'Next.js',
-					'NestJS',
-					'TypeScript',
-					'PHP',
-					'PostgreSQL',
-					'Docker',
-					'n8n',
-					'Playwright',
-					'Agentes de IA'
-				]
-			})}
-		/>
-
-		<!-- Inline Script to prevent Theme Flash -->
-		<script is:inline>
-			(function () {
-				const getTheme = () => {
-					if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-						return localStorage.getItem('theme');
-					}
-					if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-						return 'dark';
-					}
-					return 'light';
-				};
-				const theme = getTheme();
-				if (theme === 'dark') {
-					document.documentElement.classList.add('dark');
-				} else {
-					document.documentElement.classList.remove('dark');
-				}
-				window.localStorage.setItem('theme', theme);
-			})();
-		</script>
-	</head>
-	<body class="selection:bg-blue-600 selection:text-white antialiased">
-		<slot />
-	</body>
+<html lang={profile.locale} class:list={{ 'story-page': cinematic }}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10110f" />
+    <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content="Sadek Ben Jouda — Desarrollo web y automatización" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {canonical && <><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical.href} /></>}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(person).replace(/</g, '\\u003c')} />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <slot />
+    <Terminal />
+    <script>
+      import '../scripts/site';
+    </script>
+  </body>
 </html>
-
-<style is:global>
-	html {
-		font-family: 'Space Grotesk', sans-serif;
-	}
-	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Archivo', sans-serif;
-	}
-</style>

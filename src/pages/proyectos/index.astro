@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Projects from '../../components/Projects.astro';
+import Footer from '../../components/Footer.astro';
+---
+<Layout title="Proyectos — Sadek Ben Jouda"><Navigation /><main id="contenido" class="catalog-page shell"><a href="/#proyectos" class="text-link">← Volver a la historia</a><h1>Ideas convertidas<br />en código<span class="accent">.</span></h1><Projects /></main><Footer /></Layout>
+<style>
+  .catalog-page { padding-top: 145px; }
+  .catalog-page h1 { font-size: clamp(45px, 7vw, 95px); letter-spacing: -.06em; line-height: 1.08; font-weight: 550; margin: 35px 0 0; }
+  .catalog-page :global(.projects-section) { width: 100%; padding-top: 60px; }
+</style>

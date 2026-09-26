@@ -1,77 +1,13 @@
 ---
+import { profile } from '../data/portfolio';
+import Icon from './Icon.astro';
 ---
-<section id="about" class="w-full max-w-6xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12">
-  {/* Left: About me and AI philosophy */}
-  <div class="lg:col-span-7 flex flex-col items-start gap-6">
-    <div class="inline-block px-3 py-1 border-2 border-zinc-950 dark:border-zinc-50 bg-emerald-400 text-zinc-950 font-heading font-black text-xs uppercase tracking-wider shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-      SOBRE MÍ
-    </div>
-    <h2 class="text-3xl sm:text-5xl font-black font-heading tracking-tight uppercase text-zinc-950 dark:text-white">
-      Mi Enfoque de Aprendizaje
-    </h2>
-    
-    <div class="space-y-4 text-zinc-700 dark:text-zinc-300 text-sm md:text-base leading-relaxed">
-      <p>
-        Como estudiante de <strong class="text-zinc-950 dark:text-white">Desarrollo de Aplicaciones Web (DAW)</strong>, entiendo que la teoría es útil, pero la práctica real en servidores propios es donde se consolidan las habilidades. Por ello, oriento mi día a día a la experimentación con tecnologías modernas de despliegue como Docker y VPS.
-      </p>
-      <p>
-        Creo firmemente en la integración de la <strong class="text-zinc-950 dark:text-white">Inteligencia Artificial aplicada</strong> en el flujo de desarrollo. No solo uso IA para escribir código más rápido; me interesa estudiar su arquitectura profunda, las integraciones con MCP y cómo diseñar sistemas multiagente automatizados que colaboren entre sí para resolver problemas complejos.
-      </p>
-      <p>
-        Mi flujo de trabajo ideal combina la claridad paso a paso, la documentación rigurosa (como mi <code class="text-xs px-1.5 py-0.5 border border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 rounded">AGENT.md</code>) y la creación de soluciones estructuradas y replicables.
-      </p>
-    </div>
-
-    {/* IA Subscriptions Badge Section */}
-    <div class="w-full mt-4 p-5 border-2 border-zinc-950 dark:border-zinc-50 bg-zinc-100 dark:bg-zinc-900 rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)]">
-      <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-950 dark:text-white mb-3">🛠️ Mi Laboratorio de IA (Suscripciones Activas)</h3>
-      <div class="flex flex-wrap gap-2">
-        {["Claude Pro", "ChatGPT Plus", "Google AI Pro", "Opencode Go"].map(sub => (
-          <span class="text-xs font-mono font-bold px-3 py-1 border border-zinc-400 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200">
-            {sub}
-          </span>
-        ))}
-      </div>
-    </div>
-  </div>
-
-  {/* Right: Goals checklist */}
-  <div class="lg:col-span-5 flex flex-col justify-center">
-    <div class="neo-card p-6 bg-white dark:bg-zinc-900 border-2 border-zinc-950 dark:border-zinc-50 rounded-none shadow-[8px_8px_0px_0px_#2563eb]">
-      <h3 class="text-xl font-black font-heading uppercase text-zinc-950 dark:text-white mb-6 border-b-2 border-zinc-950 dark:border-zinc-50 pb-2">
-        Objetivos de Crecimiento
-      </h3>
-      
-      <div class="space-y-4">
-        {[
-          {
-            title: "Automatización Avanzada",
-            desc: "Crear integraciones profesionales y estables con n8n, conectando APIs complejas y desplegando flujos autónomos en VPS."
-          },
-          {
-            title: "Desarrollo Web Robusto",
-            desc: "Dominar arquitecturas frontend y backend eficaces, con buenas prácticas de rendimiento, SEO y estructura de bases de datos."
-          },
-          {
-            title: "Despliegues y DevOps",
-            desc: "Profundizar en la contenerización con Docker, orquestación y administración segura de servidores VPS usando EasyPanel."
-          },
-          {
-            title: "Sistemas Multiagente de IA",
-            desc: "Diseñar infraestructuras donde múltiples agentes de IA puedan colaborar e interactuar de forma organizada para automatizar proyectos."
-          }
-        ].map((goal, idx) => (
-          <div key={idx} class="flex gap-3 items-start">
-            <div class="w-6 h-6 rounded-none border-2 border-zinc-950 dark:border-zinc-50 bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]">
-              {idx + 1}
-            </div>
-            <div>
-              <h4 class="text-sm font-bold text-zinc-950 dark:text-white uppercase leading-tight">{goal.title}</h4>
-              <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">{goal.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+<section class="about-section" id="sobre-mi" aria-labelledby="about-title">
+  <div class="shell section">
+    <div class="section-kicker mono"><span>02 / DETRÁS DEL CÓDIGO</span><span>CEUTA, ESPAÑA ↗︎</span></div>
+    <div class="about-grid">
+      <div class="about-heading" data-reveal><p class="eyebrow">CURIOSIDAD COMO PUNTO DE PARTIDA.</p><h2 id="about-title">Me gusta crear.<br />Y entender<br /><span class="accent">el porqué.</span></h2><div class="about-signature">Sadek<span>↗︎</span></div></div>
+      <div class="about-copy" data-reveal><p class="about-intro">{profile.about}</p><p>{profile.approach}</p><p>{profile.learning}</p><div class="education"><span class="education-icon"><Icon name="plus" size={25} /></span><div><strong>Desarrollo de Aplicaciones Web</strong><span>Grado Superior · Finalizado en 2026</span></div></div>{profile.cv && <a class="text-link" href={profile.cv} download>Descargar CV <Icon name="down" /></a>}</div>
     </div>
   </div>
 </section>

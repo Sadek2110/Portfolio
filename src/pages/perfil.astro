@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Process from '../components/Process.astro';
+import Infrastructure from '../components/Infrastructure.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Perfil y enfoque — Sadek Ben Jouda"><Navigation /><main id="contenido" class="profile-page"><div class="shell profile-intro"><a class="text-link" href="/#sobre-mi">← Volver a la historia</a><h1>Detrás del código<span class="accent">.</span></h1></div><About /><Skills /><Process /><Infrastructure /></main><Footer /></Layout>
+<style>
+  .profile-intro { padding-top: 145px; padding-bottom: 65px; }
+  h1 { font-size: clamp(43px, 7vw, 95px); font-weight: 550; letter-spacing: -.06em; margin-top: 35px; line-height: 1.1; }
+</style>

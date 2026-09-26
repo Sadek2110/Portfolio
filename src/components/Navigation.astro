@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+interface Props { home?: boolean; }
+const { home = false } = Astro.props;
+const base = home ? '' : '/';
+---
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="wordmark" href="/" aria-label="Sadek Ben Jouda, inicio">s<span class="brand-slash">/</span>b<span class="brand-dot">.</span></a>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav" hidden><span></span><span></span></button>
+    <nav id="main-nav" aria-label="Navegación principal">
+      <a href={`${base}#sobre-mi`}>Sobre mí<span>02</span></a>
+      <a href={`${base}#proyectos`}>Proyectos<span>03</span></a>
+      <a href={`${base}#infraestructura`}>Enfoque<span>04</span></a>
+      <button class="nav-terminal mono" data-terminal-open hidden aria-haspopup="dialog" aria-controls="portfolio-terminal"><span aria-hidden="true">&gt;_</span> Terminal</button>
+      <a href={`${base}#contacto`} class="nav-contact">Hablemos <Icon size={15} /></a>
+    </nav>
+    <span class="nav-location"><span class="status-dot"></span> CEUTA, ES</span>
+  </div>
+</header>

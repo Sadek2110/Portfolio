@@ -1,0 +1,20 @@
+---
+import type { Project } from '../data/portfolio';
+interface Props { project: Project; }
+const { project } = Astro.props;
+const codes = { gym: 'GF / 01', football: 'FP / 02', workflow: 'RG / 03', scraper: 'SA / 04', quiz: 'QJ / 05', agency: 'AG / 06' };
+---
+<div class:list={['project-visual', `visual-${project.visual}`]}>
+  {project.screenshot ? <img src={project.screenshot.src} alt={project.screenshot.alt} width={project.screenshot.width} height={project.screenshot.height} loading="lazy" /> : <>
+    <span class="visual-corner mono" aria-hidden="true">{codes[project.visual]}</span>
+    <div class="visual-art" aria-hidden="true">
+      {project.visual === 'quiz' && <div class="quiz-art"><span class="mono">APRENDER. PRACTICAR. CRECER.</span><div class="quiz-leaf">✳</div><div class="quiz-options"><i></i><i class="quiz-selected">✓</i><i></i></div><strong>QuizJardineria</strong></div>}
+      {project.visual === 'agency' && <div class="agency-art"><svg viewBox="0 0 600 200" fill="none"><path d="M45 150C180 150 190 35 330 65S410 140 555 50" stroke="currentColor" stroke-dasharray="5 7" /><circle cx="45" cy="150" r="10" /><circle cx="555" cy="50" r="10" /><path d="m285 87 27-25-35-8 8 33Z" fill="currentColor" /></svg><strong>Conectar destinos.</strong><span class="mono">GESTIÓN DE AGENCIAS · TRANSPORTE MARÍTIMO</span></div>}
+      {project.visual === 'gym' && <><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="gym-emblem"><svg viewBox="0 0 120 120" fill="none"><path d="M29 43v34M40 32v56M80 32v56M91 43v34M40 60h40" stroke="currentColor" stroke-width="8" stroke-linecap="round" /></svg></div><span class="visual-word gym-word">gymflow<span>↗︎</span></span><span class="visual-subtitle mono">PLANIFICA. ENTRENA. EVOLUCIONA.</span></>}
+      {project.visual === 'football' && <><svg class="football-field" viewBox="0 0 560 300" fill="none"><rect x="35" y="25" width="490" height="250" rx="2" /><path d="M280 25v250M35 85h75v130H35M525 85h-75v130h75M35 115h30v70H35M525 115h-30v70h30" /><circle cx="280" cy="150" r="52" /><circle cx="280" cy="150" r="3" fill="currentColor" /></svg><span class="visual-word football-word">fastplay<span>↗︎</span></span><span class="visual-subtitle mono">EL FÚTBOL EMPIEZA AQUÍ.</span></>}
+      {project.visual === 'workflow' && <><div class="workflow-line"><div class="workflow-node"><span>◷</span><small>n8n</small></div><span class="node-connector"></span><div class="workflow-node main-node"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m13 2-8 12h6l-1 8 9-13h-7z" /></svg><small>API</small></div><span class="node-connector"></span><div class="workflow-node"><span>✓</span><small>Reserva</small></div></div><span class="visual-word workflow-word">Una vez. Automático.</span><span class="visual-subtitle mono">TRIGGER → PLAYWRIGHT → RESERVA</span></>}
+      {project.visual === 'scraper' && <><div class="browser-art"><div class="browser-bar"><i></i><i></i><i></i><span>https://tu-web.es</span></div><div class="browser-content"><div class="browser-lines"><i></i><i></i><i></i></div><div class="browser-code">{'{ }'}</div></div><div class="extracted-tag mono">↳ contenido · imágenes · datos</div></div><span class="visual-subtitle mono">EXTRAER. ORDENAR. REIMAGINAR.</span></>}
+    </div>
+    <span class="visual-caption mono">ESQUEMA DEL PROYECTO <span aria-hidden="true">↗︎</span></span>
+  </>}
+</div>

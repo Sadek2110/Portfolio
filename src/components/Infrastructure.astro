@@ -1,0 +1,20 @@
+---
+import { infrastructure } from '../data/portfolio';
+import Icon from './Icon.astro';
+---
+<section class="infrastructure-section" id="infraestructura" aria-labelledby="infrastructure-title">
+  <div class="shell section">
+    <div class="section-kicker mono"><span>05 / MÁS ALLÁ DEL LOCALHOST</span><span>CÓDIGO → CONTENEDOR → SERVIDOR</span></div>
+    <div class="section-heading" data-reveal><h2 id="infrastructure-title">Del código a algo<br /><span class="muted-heading">que funciona<span class="accent">.</span></span></h2><p>{infrastructure.description}</p></div>
+    <div class="infra-layers">{infrastructure.layers.map(layer => <article data-reveal><span class="mono">{layer.label}</span><div class="infra-layer-symbol" aria-hidden="true">{layer.id === 'code' ? '⌘' : layer.id === 'build' ? '▧' : '↗︎'}</div><h3>{layer.title}</h3><strong>{layer.tool}</strong><p>{layer.description}</p></article>)}</div>
+    <div class="infra-examples">
+      <div class="infra-examples-heading"><span class="eyebrow">CÓMO ENCAJAN LAS PIEZAS</span><p>Dos proyectos. Dos recorridos.</p></div>
+      <div class="infra-selectors" role="group" aria-label="Elegir esquema de arquitectura" hidden>{infrastructure.flows.map((flow, i) => <button data-flow-select={flow.id} aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`flow-${flow.id}`}>{flow.label}<Icon size={13} /></button>)}</div>
+      {infrastructure.flows.map(flow => <article class="infra-flow" id={`flow-${flow.id}`} data-flow-panel={flow.id} aria-labelledby={`flow-title-${flow.id}`}>
+        <div class="infra-flow-label"><h3 id={`flow-title-${flow.id}`}>{flow.label}</h3><span class="mono">{flow.kind}</span></div>
+        <ol class="infra-nodes">{flow.nodes.map((node, i) => <li><span class="mono">0{i + 1}</span><strong>{node}</strong>{i < flow.nodes.length - 1 && <span class="infra-connector" aria-hidden="true">→</span>}</li>)}</ol>
+        <div class="infra-flow-bottom"><p>{flow.description}</p><a class="text-link" href={flow.href}>Explorar proyecto <Icon size={16} /></a></div>
+      </article>)}
+    </div>
+  </div>
+</section>
