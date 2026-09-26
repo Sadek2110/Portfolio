@@ -1,5 +1,5 @@
 type Payload = {
-  profile: { name: string; role: string; location: string; about: string; github: string; email: string; linkedin: string };
+  profile: { name: string; role: string; location: string; about: string; github: string; email: string; phone: string; phoneHref: string; linkedin: string };
   projects: { slug: string; title: string; status: string }[];
   skills: { title: string; skills: string[] }[];
   infrastructure: { title: string; tool: string; description: string }[];
@@ -113,6 +113,7 @@ if (dialog && input && output && form && payload && typeof dialog.showModal === 
       line(parent, 'Aquí puedes encontrarme:', 'terminal-highlight');
       link(parent, 'GitHub / Sadek2110 →', data.profile.github);
       if (data.profile.email) link(parent, data.profile.email, `mailto:${data.profile.email}`);
+      if (data.profile.phone) link(parent, data.profile.phone, data.profile.phoneHref);
       if (data.profile.linkedin) link(parent, 'LinkedIn →', data.profile.linkedin);
     },
   };

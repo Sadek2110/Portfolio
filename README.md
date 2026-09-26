@@ -134,10 +134,18 @@ Verificación de la versión ampliada: `npm run build` sin errores ni advertenci
 
 ## Pendientes para personalizar o publicar
 
-- Correo profesional y, si procede, LinkedIn. Por ahora se ofrece el perfil real de GitHub como vía disponible.
+- LinkedIn, si quieres añadirlo. Correo y teléfono ya están confirmados y publicados.
 - CV en PDF, si quieres mostrar la descarga.
 - Capturas reales de proyectos y demos que quieras publicar.
 - Confirmación del estado final de FastPlay, ReservaGym y ScrapperAuto. Mientras tanto no se etiquetan como terminados.
 - Una fotografía original, si quieres sustituir el fotograma del vídeo generado aportado.
 
-No se publican fecha de nacimiento, dirección, teléfono ni credenciales personales.
+No se publican fecha de nacimiento, dirección privada ni credenciales personales. El teléfono y el correo se muestran por indicación expresa de Sadek.
+
+## Contacto y futuro chat con n8n
+
+Contacto confirmado: `sadekjoud@gmail.com` y `+34 616 863 398`. Se centraliza en `src/data/portfolio.ts`, con enlaces `mailto:` y `tel:`. La flecha de la sección de contacto abre `ContactChat.astro` tanto en escritorio como en móvil.
+
+El diálogo permite redactar nombre, correo de respuesta y mensaje. Por ahora, **Continuar por correo** abre un borrador en la aplicación de correo del visitante; no envía automáticamente ni simula una entrega. Cerrar y volver a abrir conserva el borrador en esa página, sin almacenamiento persistente.
+
+La entrega está aislada en `src/scripts/contact-chat.ts`. La futura conexión con n8n podrá recibir el contrato `ContactMessage`: `{ name, email, message, source: 'portfolio', page }`. Queda pendiente implementar el endpoint de recepción, la validación y los estados de envío real, y conectar el flujo con Gmail o Telegram. Las credenciales de esos servicios deben permanecer en el servidor. No hay un webhook configurado ni llamadas a n8n en esta versión.

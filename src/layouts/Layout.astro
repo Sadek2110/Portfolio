@@ -5,6 +5,7 @@ import '../styles/global.css';
 import '../styles/enhancements.css';
 import { profile, skillGroups } from '../data/portfolio';
 import Terminal from '../components/Terminal.astro';
+import ContactChat from '../components/ContactChat.astro';
 interface Props { title?: string; description?: string; cinematic?: boolean; }
 const { title = `${profile.shortName} — Desarrollo web & automatización`, description = profile.headline, cinematic = false } = Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
@@ -42,6 +43,7 @@ const person = {
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <slot />
     <Terminal />
+    <ContactChat />
     <script>
       import '../scripts/site';
     </script>

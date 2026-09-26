@@ -208,3 +208,39 @@ test('Un gesto de rueda termina en el siguiente capítulo', async ({ page }) => 
   await expect(page.locator('[data-scroll-story]')).toHaveAttribute('data-chapter', '1');
   await expect.poll(() => page.locator('#sobre-mi').evaluate(el => Math.abs(el.getBoundingClientRect().top))).toBeLessThan(3);
 });
+
+for (const width of [360, 1440]) {
+  test(`Contacto y chat accesible a ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/#contacto');
+    const contact = page.locator('#contacto');
+    await expect(contact.getByRole('link', { name: /sadekjoud@gmail.com/ })).toHaveAttribute('href', 'mailto:sadekjoud@gmail.com');
+    await expect(contact.getByRole('link', { name: /616 863 398/ })).toHaveAttribute('href', 'tel:+34616863398');
+    const opener = page.getByRole('button', { name: 'Abrir chat con Sadek' });
+    await opener.click();
+    const chat = page.getByRole('dialog', { name: 'Hablemos de tu idea.' });
+    await expect(chat).toBeVisible();
+    await expect(chat.getByLabel('Tu nombre')).toBeFocused();
+    await expect(chat).toContainText('El chat directo estará disponible pronto');
+    for (let i = 0; i < 10; i++) {
+      await page.keyboard.press('Tab');
+      expect(await chat.evaluate(el => el.contains(document.activeElement))).toBe(true);
+    }
+    const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+    expect(audit.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))).toEqual([]);
+    await chat.getByLabel('Tu nombre').fill('Prueba');
+    await chat.getByLabel('Tu correo').fill('prueba@example.com');
+    await chat.getByLabel('¿Qué tienes en mente?').fill('Quiero comentar una idea.');
+    await page.screenshot({ path: `test-results/chat-${width}.png` });
+    await page.keyboard.press('Escape');
+    await expect(chat).toBeHidden();
+    await expect(opener).toBeFocused();
+    await opener.click();
+    await expect(chat.getByLabel('¿Qué tienes en mente?')).toHaveValue('Quiero comentar una idea.');
+    await chat.getByRole('button', { name: 'Continuar por correo' }).click();
+    await expect(chat.getByRole('status')).toContainText('Mensaje preparado. Envíalo desde tu aplicación de correo');
+    await chat.getByRole('button', { name: 'Cerrar chat' }).click();
+    await expect(chat).toBeHidden();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  });
+}

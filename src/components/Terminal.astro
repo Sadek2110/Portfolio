@@ -1,7 +1,7 @@
 ---
 import { profile, allProjects, skillGroups, infrastructure } from '../data/portfolio';
 const payload = {
-  profile: { name: profile.name, role: profile.role, location: profile.location, about: profile.about, github: profile.github, email: profile.email, linkedin: profile.linkedin },
+  profile: { name: profile.name, role: profile.role, location: profile.location, about: profile.about, github: profile.github, email: profile.email, phone: profile.phone, phoneHref: profile.phoneHref, linkedin: profile.linkedin },
   projects: allProjects.map(({ slug, title, status }) => ({ slug, title, status })),
   skills: skillGroups.map(({ title, skills }) => ({ title, skills })),
   infrastructure: infrastructure.layers.map(({ title, tool, description }) => ({ title, tool, description })),

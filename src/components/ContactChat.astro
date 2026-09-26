@@ -1,0 +1,30 @@
+---
+import { profile } from '../data/portfolio';
+import Icon from './Icon.astro';
+import '../styles/contact-chat.css';
+---
+<dialog id="contact-chat" class="contact-chat" aria-labelledby="chat-title" aria-describedby="chat-description" data-recipient={profile.email}>
+  <header class="chat-header">
+    <span class="chat-avatar" aria-hidden="true">s/b.</span>
+    <div><p class="mono">CONTACTO CON SADEK</p><h2 id="chat-title">Hablemos de tu idea.</h2></div>
+    <button type="button" data-chat-close aria-label="Cerrar chat">×</button>
+  </header>
+  <div class="chat-body">
+    <p class="chat-greeting">¡Hola! Cuéntame qué tienes en mente: una web, una automatización o esa idea a la que llevas tiempo dándole vueltas.</p>
+    <p id="chat-description" class="chat-description">El chat directo estará disponible pronto. Mientras tanto, prepara tu mensaje aquí y envíamelo desde tu correo.</p>
+    <form class="chat-form">
+      <div class="chat-fields">
+        <label for="chat-name">Tu nombre<input id="chat-name" name="name" autocomplete="name" maxlength="80" required /></label>
+        <label for="chat-email">Tu correo<input id="chat-email" name="email" type="email" autocomplete="email" maxlength="254" required /></label>
+      </div>
+      <label for="chat-message">¿Qué tienes en mente?<textarea id="chat-message" name="message" rows="4" maxlength="2000" placeholder="Me gustaría…" required></textarea></label>
+      <p class="chat-hint" id="chat-send-hint">Se abrirá tu aplicación de correo con el mensaje preparado. Tú decides cuándo enviarlo.</p>
+      <button type="submit" class="button button-primary" aria-describedby="chat-send-hint">Continuar por correo <Icon size={18} /></button>
+      <p class="chat-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <footer class="chat-footer"><a href={'mailto:' + profile.email}>{profile.email}</a><a href={profile.phoneHref}>{profile.phone}</a></footer>
+</dialog>
+<script>
+  import '../scripts/contact-chat';
+</script>

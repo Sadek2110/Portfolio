@@ -47,7 +47,19 @@ import '../styles/story.css';
     </section>
 
     <section class="story-chapter story-contact" id="contacto" data-chapter aria-labelledby="story-contact">
-      <div class="chapter-shell shell contact-shell"><div class="chapter-content"><p class="story-eyebrow mono" data-story-reveal>05 / LAS IDEAS EMPIEZAN HABLANDO</p><h2 id="story-contact" data-story-reveal>La próxima<br />idea puede ser<br /><span>la tuya.</span></h2><p class="story-lead" data-story-reveal>Una web, una automatización o algo que todavía estás imaginando.</p><a class="button button-primary" href={profile.email ? 'mailto:' + profile.email : profile.github} target={profile.email ? undefined : '_blank'} rel={profile.email ? undefined : 'noopener noreferrer'} data-story-reveal>{profile.email ? 'Escríbeme' : 'Encuéntrame en GitHub'}<Icon size={19} /></a><div class="story-contact-links" data-story-reveal><a href="/proyectos/">Ver mi trabajo <Icon size={14} /></a><button type="button" data-terminal-open hidden aria-haspopup="dialog" aria-controls="portfolio-terminal"><span aria-hidden="true">&gt;_</span> Explorar la terminal</button></div></div><div class="contact-symbol" aria-hidden="true" data-story-reveal><Icon size={130} /></div></div>
+      <div class="chapter-shell shell contact-shell">
+        <div class="chapter-content">
+          <p class="story-eyebrow mono" data-story-reveal>05 / LAS IDEAS EMPIEZAN HABLANDO</p>
+          <h2 id="story-contact" data-story-reveal>La próxima<br />idea puede ser<br /><span>la tuya.</span></h2>
+          <p class="story-lead" data-story-reveal>Una web, una automatización o algo que todavía estás imaginando.</p>
+          <div class="story-contact-details" data-story-reveal>
+            <a href={'mailto:' + profile.email}><span class="mono">ESCRÍBEME</span>{profile.email}<Icon size={19} /></a>
+            <a href={profile.phoneHref}><span class="mono">LLÁMAME</span>{profile.phone}<Icon size={19} /></a>
+          </div>
+          <div class="story-contact-links" data-story-reveal><a href="/proyectos/">Ver mi trabajo <Icon size={14} /></a><button type="button" data-terminal-open hidden aria-haspopup="dialog" aria-controls="portfolio-terminal"><span aria-hidden="true">&gt;_</span> Explorar la terminal</button></div>
+        </div>
+        <button class="contact-symbol" type="button" data-contact-chat-open hidden aria-label="Abrir chat con Sadek" aria-haspopup="dialog" aria-controls="contact-chat" data-story-reveal><Icon size={130} /><span class="mono">HABLEMOS · ABRIR CHAT</span></button>
+      </div>
     </section>
   </div>
 </div>
