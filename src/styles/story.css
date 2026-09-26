@@ -15,8 +15,8 @@
 .intro-shell { display: flex; justify-content: flex-end; }
 .intro-shell .chapter-content { width: 53%; }
 .story-portrait { position: absolute; inset: 0; }
-.story-poster { width: 100%; height: 100%; object-fit: cover; object-position: 24% center; filter: saturate(.35) brightness(.78); }
-.portrait-shade { position: absolute; inset: 0; background: linear-gradient(90deg, #10110f12, #10110f30 26%, #10110fdc 54%, #10110ff2), linear-gradient(0deg, #10110f, transparent 35%, transparent 70%, #10110f80); }
+.story-poster { width: 100%; height: 100%; object-fit: cover; object-position: 24% center; }
+.portrait-shade { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 20%, #10110f10 32%, #10110fe8 55%, #10110ff5), linear-gradient(0deg, #10110f, transparent 32%, transparent 80%, #10110f60); }
 .story-topline { position: absolute; left: 0; right: 0; top: 114px; display: flex; justify-content: space-between; font-size: 8px; color: #bec6b2; }
 .portrait-credit { position: absolute; left: max(56px, calc((100vw - 1280px) / 2)); bottom: 100px; color: #bdc7b1; font-size: 7px; }
 .story-eyebrow { color: #b4c69b; font-size: 9px; display: flex; align-items: center; gap: 9px; margin-bottom: 28px; }
@@ -109,8 +109,8 @@
 @media (max-width: 767px) {
   .story-chapter { padding: 115px 0 115px; }
   .story-intro { padding-top: 305px; align-items: flex-end; }
-  .story-poster { object-position: 23% center; filter: saturate(.3) brightness(.68); }
-  .portrait-shade { background: linear-gradient(0deg, #10110f 0%, #10110ff2 20%, #10110fc0 46%, #10110f10 82%, #10110f88 100%); }
+  .story-poster { object-position: 23% center; }
+  .portrait-shade { background: linear-gradient(0deg, #10110f 0%, #10110ff5 22%, #10110fbb 45%, transparent 65%, transparent 88%, #10110f55 100%); }
   .story-topline { top: 92px; font-size: 7px; }
   .story-topline > span:last-child, .portrait-credit { display: none; }
   .intro-shell .chapter-content { width: 100%; }

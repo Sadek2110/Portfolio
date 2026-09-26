@@ -194,7 +194,7 @@ test('El perfil estructurado usa datos confirmados y las páginas nuevas son acc
 });
 
 test('Un fallo de la foto conserva el contenido y los enlaces', async ({ page }) => {
-  await page.route('**/media/hero-poster.webp', route => route.abort());
+  await page.route('**/_astro/portrait*.webp', route => route.abort());
   await page.goto('/');
   await expect(page.locator('.story-poster')).toBeVisible();
   await page.locator('#proyectos').scrollIntoViewIfNeeded();

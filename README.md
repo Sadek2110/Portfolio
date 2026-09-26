@@ -1,6 +1,6 @@
 # Sadek Ben Jouda — Portfolio
 
-Portfolio en español construido con **Astro, TypeScript y Tailwind CSS**. Sitio estático, sin backend ni hidratación de React. Fuentes locales, cuatro proyectos destacados y dos secundarios con páginas individuales, filtros accesibles, terminal interactiva, esquemas de infraestructura y portada con retrato estático extraído del material entregado en `ingredients`. La landing resume el perfil en cinco secciones con scroll snap obligatorio y transiciones de contenido.
+Portfolio en español construido con **Astro, TypeScript y Tailwind CSS**. Sitio estático, sin backend ni hidratación de React. Fuentes locales, cuatro proyectos destacados y dos secundarios con páginas individuales, filtros accesibles, terminal interactiva, esquemas de infraestructura y portada con la foto estática «Retrato urbano junto al mar.png» entregada en `ingredients`. La landing resume el perfil en cinco secciones con scroll snap obligatorio y transiciones de contenido.
 
 ## Ejecutar en Antigravity o cualquier editor
 
@@ -53,7 +53,7 @@ nginx.conf       Archivos estáticos, caché y página 404 real
 
 ## Portada y recursos
 
-- `hero-poster.webp`: retrato estático extraído del vídeo aportado, visible solo en la primera sección. El resto continúa con fondos oscuros y un cierre lima.
+- `src/assets/portrait.png`: copia de la foto aportada, a su resolución nativa de 1672 × 941. Astro genera variantes WebP a 836, 1280 y 1672 píxeles con calidad 90. La foto mantiene sus colores, sin filtros de saturación o brillo; el degradado se concentra detrás del texto. Solo aparece en la primera sección.
 - Cinco capítulos: inicio, perfil, proyectos, enfoque y contacto. El scroll usa `scroll-snap-type: y mandatory` nativo y conserva la navegación por teclado y enlaces.
 - Los títulos, textos y enlaces entran de forma escalonada con opacidad y desplazamientos suaves ligados al scroll; al retroceder la transición se invierte. Las líneas y los indicadores acompañan el avance.
 - No se reproducen ni descargan vídeos o secuencias de fotogramas en la landing. Los recursos anteriores se conservan en disco, sin uso en esta página.
@@ -138,7 +138,6 @@ Verificación de la versión ampliada: `npm run build` sin errores ni advertenci
 - CV en PDF, si quieres mostrar la descarga.
 - Capturas reales de proyectos y demos que quieras publicar.
 - Confirmación del estado final de FastPlay, ReservaGym y ScrapperAuto. Mientras tanto no se etiquetan como terminados.
-- Una fotografía original, si quieres sustituir el fotograma del vídeo generado aportado.
 
 No se publican fecha de nacimiento, dirección privada ni credenciales personales. El teléfono y el correo se muestran por indicación expresa de Sadek.
 

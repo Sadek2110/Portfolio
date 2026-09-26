@@ -1,6 +1,8 @@
 ---
 import { profile, projects, allProjects } from '../data/portfolio';
 import Icon from './Icon.astro';
+import { Image } from 'astro:assets';
+import portrait from '../assets/portrait.png';
 import '../styles/story.css';
 ---
 <div class="scroll-story" data-scroll-story>
@@ -11,7 +13,7 @@ import '../styles/story.css';
   </div>
   <div class="story-chapters">
     <section class="story-chapter story-intro" id="inicio" data-chapter aria-labelledby="story-name">
-      <div class="story-portrait" aria-hidden="true"><img class="story-poster" src="/media/hero-poster.webp" width="1280" height="720" alt="" fetchpriority="high" /><div class="portrait-shade"></div></div>
+      <div class="story-portrait" aria-hidden="true"><Image class="story-poster" src={portrait} widths={[836, 1280, 1672]} sizes="(max-width: 767px) 178svh, 100vw" format="webp" quality={90} alt="" loading="eager" fetchpriority="high" /><div class="portrait-shade"></div></div>
       <div class="story-topline shell mono"><span>SADEK BEN JOUDA AKIL / PORTFOLIO</span><span>UNA IDEA. MUCHAS POSIBILIDADES.</span></div>
       <div class="chapter-shell shell intro-shell"><div class="chapter-content">
         <p class="story-eyebrow mono" data-story-reveal><span class="status-dot"></span> DESARROLLO WEB · AUTOMATIZACIÓN · IA</p>
@@ -20,7 +22,7 @@ import '../styles/story.css';
         <div class="story-actions" data-story-reveal><a href="#proyectos" class="button button-primary">Ver proyectos <Icon name="down" size={17} /></a><a href="#contacto" class="story-text-link">Contactar <Icon size={16} /></a></div>
         <a class="story-scroll-note mono" href="#sobre-mi" data-story-reveal><span class="scroll-line" aria-hidden="true"></span> SIGUE BAJANDO. TE CUENTO.</a>
       </div></div>
-      <span class="portrait-credit mono">RETRATO DEL VÍDEO APORTADO · IA</span>
+      <span class="portrait-credit mono">RETRATO APORTADO POR SADEK</span>
     </section>
 
     <section class="story-chapter story-about" id="sobre-mi" data-chapter aria-labelledby="story-about">
