@@ -107,6 +107,8 @@
   .contact-symbol svg { width: 85px; }
 }
 @media (max-width: 767px) {
+  /* El rótulo inferior solo se muestra en escritorio; en móvil no deja una franja vacía. */
+  .story-backdrop { display: none; }
   .story-chapter { padding: 115px 0 115px; }
   .story-intro { padding-top: 305px; align-items: flex-end; }
   .story-poster { object-position: 23% center; }
@@ -154,8 +156,6 @@
   .story-contact-details .mono { min-width: 53px; font-size: 7px; }
   .story-contact-links { gap: 20px; margin-top: 18px; }
   .story-contact-links a, .story-contact-links button { font-size: 11px; }
-  .story-bottom { flex-direction: column; align-items: stretch; gap: 6px; padding-block: 10px 15px; }
-  .story-location { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .story-page { scroll-snap-type: none; }
